@@ -10,9 +10,11 @@ import './landscape_player/landscape_player.dart';
 
 import 'default_player/default_player.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+      home: const Scaffold(
         backgroundColor: Color.fromRGBO(246, 245, 250, 1),
         body: SafeArea(child: Examples()),
       ),
@@ -69,15 +71,13 @@ class _ExamplesState extends State<Examples> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Expanded(child: WebVideoPlayer()),
-        Container(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Text('Flick video player',
-                style: TextStyle(
-                  color: Color.fromRGBO(100, 109, 236, 1),
-                  fontWeight: FontWeight.bold,
-                )),
-          ),
+        const Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Text('Flick video player',
+              style: TextStyle(
+                color: Color.fromRGBO(100, 109, 236, 1),
+                fontWeight: FontWeight.bold,
+              )),
         )
       ],
     );
@@ -92,7 +92,7 @@ class _ExamplesState extends State<Examples> {
         ),
         Container(
           height: 80,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
           ),
           child: ListView(
@@ -106,13 +106,13 @@ class _ExamplesState extends State<Examples> {
                     },
                     child: Center(
                       child: Container(
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         child: Text(
                           samples.asMap()[index]?['name'],
                           style: TextStyle(
                             color: index == selectedIndex
-                                ? Color.fromRGBO(100, 109, 236, 1)
-                                : Color.fromRGBO(173, 176, 183, 1),
+                                ? const Color.fromRGBO(100, 109, 236, 1)
+                                : const Color.fromRGBO(173, 176, 183, 1),
                             fontWeight:
                                 index == selectedIndex ? FontWeight.bold : null,
                           ),
